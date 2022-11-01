@@ -1,22 +1,62 @@
-import React from 'react'
-import { StyleSheet, Text, View, SafeAreaView,Pressable } from 'react-native';
-import { TextInput,Button } from "@react-native-material/core";
+import {React,useState} from 'react'
+import { StyleSheet, Text, View, SafeAreaView,Pressable,Alert } from 'react-native';
+import { TextInput, Button } from "@react-native-material/core";
+import axios from 'axios'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function Login({navigation}){
+export default function Login({ navigation }) {
+  
+  const [email, setEmail] = useState('')
+  const [pasword,setPassword] = useState('')
     const signupNavi = () => {
         navigation.push('Signup')
     }
-    const loginNavi = () => {
-        navigation.push('Home')
+  const loginNavi = () => {
+     axios.post(`http://192.168.1.3:5000/login/${email}`, { password:pasword })
+      .then((data) => {
+        
+        if (data.data == 'Invalid') {
+          Alert.alert(
+            "Login Error",
+            "Invalid Credeintials "
+          )
+        } else {
+          AsyncStorage.setItem('id',data.data.email)
+          if (data.data.role == 'passenger') {
+            navigation.push('Tabs')
+          } else {
+            navigation.push('BusTabs')
+          }
+            
+          }
+          
+          
+        
+        
+        
+      }).catch((err) => {
+        console.log(err)
+    })
+      
+    
+
+        //navigation.push('Home')
+    console.log("email",email)
+    console.log("password",pasword)
     }
   return (
       <SafeAreaView style = {styles.container} >
           <TextInput
             style={styles.input}
-              label="User Name" />
+        label="User Name"
+        value={email}
+      onChangeText={newText => setEmail(newText)}/>
            <TextInput
-            style={styles.input}
-              label="Password" />
+        style={styles.input}
+        value = {pasword}
+        label="Password"
+      onChangeText={newText => setPassword(newText)}/>
+      
           <Button
               style= {styles.login_btn}
               title="Login"

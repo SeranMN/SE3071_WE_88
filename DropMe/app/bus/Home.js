@@ -2,12 +2,11 @@ import React from 'react'
 import { View, Text ,StyleSheet} from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Home } from './Tabs/Home'
-import {Activity} from './Tabs/Activity'
-import { Account } from './Tabs/Account'
+import {Scaner} from './Tabs/Scaner'
+import Account from './Tabs/Account'
 import { Entypo } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { History } from './Tabs/History'
-export const Tabs = () => {
+export const BusTabs = () => {
     const Tab = createBottomTabNavigator();
   return (
       <Tab.Navigator
@@ -38,9 +37,9 @@ export const Tabs = () => {
                   )) 
               }}
               />
-          <Tab.Screen 
+          { <Tab.Screen 
               name='Activity'
-              component={Activity}
+              component={Scaner}
            options={{
                   tabBarIcon: (({ focused }) => (
                       <View style={{ alignItems: 'center', justifyContent: 'center',top:10  }}>
@@ -48,7 +47,7 @@ export const Tabs = () => {
                           <Text>Time Table</Text>
                       </View>
                   )) 
-              }}/>
+              }}/> }
           <Tab.Screen 
               name='Account'
               component={Account}
@@ -64,13 +63,6 @@ export const Tabs = () => {
                           <Text>Account</Text>
                       </View>
                   )) 
-              }} />
-          <Tab.Screen 
-              name='Historyt'
-              component={History}
-           options={{
-               tabBarShowLabel: false,
-               tabBarIconStyle:false
               }}/>
      </Tab.Navigator>
   )

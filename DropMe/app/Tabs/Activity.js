@@ -4,9 +4,7 @@ import { Text, View,StyleSheet } from 'react-native'
 export const Activity = () => {
   return (
       <View style={styles.container}>
-          <Text >
-            Activity
-          </Text>
+          
       </View>
   )
 }
