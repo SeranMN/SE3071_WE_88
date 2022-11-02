@@ -48,6 +48,17 @@ export const Tabs = () => {
                           <Text>Time Table</Text>
                       </View>
                   )) 
+              }} />
+          <Tab.Screen 
+              name='Historyt'
+              component={History}
+           options={{
+               tabBarIcon: (({ focused }) => (
+                      <View style={{ alignItems: 'center', justifyContent: 'center',top:10  }}>
+                          <Entypo name="back-in-time" size={24} color={focused?"black":"gray"} />
+                          <Text>History</Text>
+                      </View>
+                  )) 
               }}/>
           <Tab.Screen 
               name='Account'
@@ -65,13 +76,7 @@ export const Tabs = () => {
                       </View>
                   )) 
               }} />
-          <Tab.Screen 
-              name='Historyt'
-              component={History}
-           options={{
-               tabBarShowLabel: false,
-               tabBarIconStyle:false
-              }}/>
+          
      </Tab.Navigator>
   )
 }

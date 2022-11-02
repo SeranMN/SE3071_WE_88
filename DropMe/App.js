@@ -6,6 +6,9 @@ import {BusTabs} from './app/bus/Home'
 import Login from './app/Login';
 import Signup from './app/Signup';
 import { Tabs } from './app/Tab';
+import { TimeTable } from './app/Tabs/TimeTable';
+import { Scaner } from './app/bus/Tabs/Scaner';
+//import {Topup} from './app/Tabs/Topup'
 export default function App() {
    const Stack = createNativeStackNavigator();
  
@@ -15,6 +18,10 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{
+            title: null,
+            headerShown:false
+          }}
           
         />
         <Stack.Screen
@@ -25,6 +32,40 @@ export default function App() {
         <Stack.Screen
           name="Tabs"
           component={Tabs}
+           options={{
+             title: "DROPME",
+             headerShown: true,
+            
+             
+             
+          headerStyle: {
+            backgroundColor: '#f4511e',
+            
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+        />
+        <Stack.Screen
+          name="BusTabs"
+          component={BusTabs}
+           options={{
+             title: "DROPME",
+             headerShown:true,
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+        />
+         <Stack.Screen
+          name="Time Table"
+          component={TimeTable}
            options={{
              title: "DROPME",
              headerShown:true,
@@ -38,11 +79,11 @@ export default function App() {
         }}
         />
         <Stack.Screen
-          name="BusTabs"
-          component={BusTabs}
+          name="Scaner"
+          component={Scaner}
            options={{
-             title: null,
-             headerShown:false,
+             title: "DROPME",
+             headerShown:true,
           headerStyle: {
             backgroundColor: '#f4511e',
           },
@@ -52,7 +93,7 @@ export default function App() {
           },
         }}
         />
-        
+
       </Stack.Navigator>
     </NavigationContainer>
     

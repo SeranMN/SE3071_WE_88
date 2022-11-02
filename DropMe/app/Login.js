@@ -1,5 +1,5 @@
 import {React,useState} from 'react'
-import { StyleSheet, Text, View, SafeAreaView,Pressable,Alert } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView,Pressable,Alert,Image } from 'react-native';
 import { TextInput, Button } from "@react-native-material/core";
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -45,7 +45,10 @@ export default function Login({ navigation }) {
     console.log("password",pasword)
     }
   return (
-      <SafeAreaView style = {styles.container} >
+    <SafeAreaView style={styles.container} >
+      
+      <Image source={require('./DropMe-logos_black.png')}
+      style={{ width: 250, height: 250}}/>
           <TextInput
             style={styles.input}
         label="User Name"
@@ -53,6 +56,7 @@ export default function Login({ navigation }) {
       onChangeText={newText => setEmail(newText)}/>
            <TextInput
         style={styles.input}
+        secureTextEntry={true}
         value = {pasword}
         label="Password"
       onChangeText={newText => setPassword(newText)}/>

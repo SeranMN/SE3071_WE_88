@@ -37,17 +37,7 @@ export const BusTabs = () => {
                   )) 
               }}
               />
-          { <Tab.Screen 
-              name='Activity'
-              component={Scaner}
-           options={{
-                  tabBarIcon: (({ focused }) => (
-                      <View style={{ alignItems: 'center', justifyContent: 'center',top:10  }}>
-                          <Entypo name="calendar" size={24} color={focused?"black":"gray"} />
-                          <Text>Time Table</Text>
-                      </View>
-                  )) 
-              }}/> }
+         
           <Tab.Screen 
               name='Account'
               component={Account}

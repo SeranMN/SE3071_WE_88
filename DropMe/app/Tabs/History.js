@@ -6,12 +6,12 @@ import { View,Text,StyleSheet,ScrollView } from 'react-native'
 
 export const History = () => {
     let id = ''
-    const getId = async () => {
-        id = await AsyncStorage.getItem('id');
-    }
+   
     const [trips, setTrip] = useState([])
-    getId
-    useEffect(() => {
+    
+    
+    useEffect(async() => {
+         id = await AsyncStorage.getItem('id')
         axios.get(`http://192.168.1.3:5000/trip/${id}`)
             .then((res) => {
                 setTrip(res.data)
