@@ -15,7 +15,7 @@ export const Home = () => {
     const getId = async () => {
       id = await AsyncStorage.getItem("id");
       axios
-        .get(`http://192.168.1.3:5000/user/${id}`)
+        .get(`https://dropmebackend.herokuapp.com/user/${id}`)
         .then((res) => {
           setUser(res.data);
           AsyncStorage.setItem('user',JSON.stringify(res.data))

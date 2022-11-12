@@ -37,14 +37,14 @@ let busJSO = ''
 
 
 
-   axios.get(`http://192.168.1.3:5000/user/${data}`).then(async (res) => {
+   axios.get(`https://dropmebackend.herokuapp.com/user/${data}`).then(async (res) => {
     await  setPassenger(res.data);
      
       
 
     
      
-     axios.get(`http://192.168.1.3:5000/bus/${busJSO.BusNo}`)
+     axios.get(`https://dropmebackend.herokuapp.com/bus/${busJSO.BusNo}`)
        .then(async(res) => { await setBalane(res.data)
       console.log(res.data) } 
      )
@@ -79,7 +79,7 @@ let busJSO = ''
   const updateAccount = (pid, price) => {
     console.log(pid);
     axios
-      .put(`http://192.168.1.3:5000/user/Acc/${pid}`, { AccBalance: price })
+      .put(`https://dropmebackend.herokuapp.com/user/Acc/${pid}`, { AccBalance: price })
       .then(() => {
         console.log("sucess");
       })
@@ -96,13 +96,13 @@ let busJSO = ''
       Cost: Bus.Price,
       Date: new Date()
     }
-    axios.post("http://192.168.1.3:5000/trip/add", trip)
+    axios.post("https://dropmebackend.herokuapp.com/trip/add", trip)
       .then(() => console.log('sucess'))
       .catch((err)=> console.log(err));
   };
 
   const busBalance = (balance) => {
-    axios.put(`http://192.168.1.3:5000/bus/balance/${busJSO.BusNo}`, { Balance: balance })
+    axios.put(`https://dropmebackend.herokuapp.com/bus/balance/${busJSO.BusNo}`, { Balance: balance })
       .then(() => console.log('sucess'))
       .catch((err) => { console.log(err) });
   }

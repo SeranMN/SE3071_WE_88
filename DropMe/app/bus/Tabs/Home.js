@@ -17,7 +17,7 @@ export const Home = ({navigation}) => {
       id = await AsyncStorage.getItem("id");
 
       await axios
-        .get(`http://192.168.1.3:5000/bus/${id}`)
+        .get(`https://dropmebackend.herokuapp.com/bus/${id}`)
         .then((res) => {
           setBus(res.data);
         })

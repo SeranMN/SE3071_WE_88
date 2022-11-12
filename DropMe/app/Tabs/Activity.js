@@ -10,7 +10,7 @@ export const Activity = ({navigation}) => {
   }
   const[routes,setRoute] = useState([])
   useEffect(() => {
-    axios.get('http://192.168.1.3:5000/route/')
+    axios.get('https://dropmebackend.herokuapp.com/route/')
       .then((res) => {
       setRoute(res.data)
     })

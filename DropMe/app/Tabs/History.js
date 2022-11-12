@@ -11,12 +11,15 @@ export const History = () => {
     
     
     useEffect(async() => {
-         id = await AsyncStorage.getItem('id')
-        axios.get(`http://192.168.1.3:5000/trip/${id}`)
+        id = await AsyncStorage.getItem('id')
+        const getHistory = async () => {
+             axios.get(`https://dropmebackend.herokuapp.com/trip/${id}`)
             .then((res) => {
                 setTrip(res.data)
                console.log(trips)
         }).catch((err)=>{console.log(err)})
+        }
+       getHistory()
     },[])
     return (
         <ScrollView style={styles.container}>

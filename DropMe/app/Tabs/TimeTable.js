@@ -6,7 +6,7 @@ export const TimeTable = ({ route }) => {
     let routNo = route.params.paramKey
     const [times, setTimes] = useState([]);
     useEffect(() => {
-        axios.get(`http://192.168.1.3:5000/time/${routNo}`)
+        axios.get(`https://dropmebackend.herokuapp.com/time/${routNo}`)
             .then((res) => {
             setTimes(res.data)
             })

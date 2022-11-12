@@ -12,7 +12,7 @@ export default function Login({ navigation }) {
         navigation.push('Signup')
     }
   const loginNavi = () => {
-     axios.post(`http://192.168.1.3:5000/login/${email}`, { password:pasword })
+     axios.post(`https://dropmebackend.herokuapp.com/login/${email}`, { password:pasword })
       .then((data) => {
         
         if (data.data == 'Invalid') {
